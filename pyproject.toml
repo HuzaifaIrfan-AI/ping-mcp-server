@@ -1,0 +1,22 @@
+[project]
+name = "ping-mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "HuzaifaIrfan", email = "huzaifairfan2001@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp>=2.9.2",
+    "pydantic>=2.11.7",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+]
+
+[project.scripts]
+ping-mcp-server = "ping_mcp_server.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
