@@ -22,13 +22,6 @@ FASTMCP_HOST="0.0.0.0" FASTMCP_PORT=1234 uv run ping-mcp-server
 uv run pytest
 ```
 
-### Pytest Coverage Test
-
-```sh
-uv run pytest --cov=src/ --cov-report=term-missing --cov-fail-under=70
-```
-
-
 ### MCP Inspector
 
 ```sh
@@ -39,17 +32,20 @@ npx -y @modelcontextprotocol/inspector
 
 ```json
 {
-  "mcpServers": {
-    "ping": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "http://localhost:1234/sse"
-      ]
+    "mcpServers": {
+        "ping": {
+            "command": "npx",
+            "args": [
+                "mcp-remote",
+                "http://localhost:1234/sse",
+                "--allow-http"
+            ]
+        }
     }
-  }
 }
 ```
+
+![claude](claude.jpg)
 
 
 ## 🤝🏻 &nbsp;Connect with Me

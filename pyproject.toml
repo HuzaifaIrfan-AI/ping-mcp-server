@@ -1,7 +1,7 @@
 [project]
 name = "ping-mcp-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "MCP Server to Ping Other hosts"
 readme = "README.md"
 authors = [
     { name = "HuzaifaIrfan", email = "huzaifairfan2001@gmail.com" }
@@ -10,6 +10,10 @@ requires-python = ">=3.13"
 dependencies = [
     "fastmcp>=2.9.2",
     "pydantic>=2.11.7",
+]
+
+[tool.uv]
+dev-dependencies = [
     "pytest>=8.4.1",
     "pytest-asyncio>=1.0.0",
     "pytest-cov>=6.2.1",
@@ -22,4 +26,13 @@ ping-mcp-server = "ping_mcp_server.main:main"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.pytest.ini_options]
+addopts = "--cov=ping_mcp_server --cov-report=html --cov-report=term-missing --cov-fail-under=70"
+# This is the directory where pytest will look for tests
+# and the naming conventions for test files and functions.
+# Adjust these as necessary for your project structure.
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+asyncio_mode = "auto"
 
