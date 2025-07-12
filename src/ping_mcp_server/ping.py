@@ -6,6 +6,9 @@ async def run_ping_command(host: str, count: int = 4) -> str:
     """Run the ping command and return its output."""
     # Determine the correct ping command based on the OS
     current_os = platform.system().lower()
+
+    if count <= 0:
+        return f"Error Invalid Count"
     
     if current_os == "windows":
         cmd = ["ping", "-n", str(count), host]
@@ -27,7 +30,7 @@ async def run_ping_command(host: str, count: int = 4) -> str:
         else:
             return f"Error: {stderr.decode('utf-8')}"
     except Exception as e:
-        return f"Failed to execute ping command: {str(e)}"
+        return f"Error Failed to execute ping command: {str(e)}"
 
 
 async def ping_host(host: str, count: int = 4) -> str:
