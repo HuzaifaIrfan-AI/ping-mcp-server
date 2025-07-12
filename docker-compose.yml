@@ -25,10 +25,10 @@ services:
       - "traefik.http.routers.ping_mcp_server.tls=true"
       - "traefik.http.routers.ping_mcp_server.tls.certresolver=le"
       
-      - "traefik.http.services.chatwoot.loadbalancer.server.port=1234"
-      # - "traefik.http.services.chatwoot.loadbalancer.server.scheme=http"
+      - "traefik.http.services.ping_mcp_server.loadbalancer.server.port=1234"
+      # - "traefik.http.services.ping_mcp_server.loadbalancer.server.scheme=http"
 
-      # - "traefik.http.services.chatwoot.loadbalancer.server.url=http://chatwoot-rails:3000"
+      # - "traefik.http.services.ping_mcp_server.loadbalancer.server.url=http://chatwoot-rails:3000"
 
     networks:
       - web
