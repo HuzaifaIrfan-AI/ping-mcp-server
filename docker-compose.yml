@@ -19,7 +19,7 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ping_mcp_server.rule=Host(`dev.huzaifairfan.com`)"
+      - "traefik.http.routers.ping_mcp_server.rule=Host(`api.huzaifairfan.com`)" # && PathPrefix(`/ping_mcp_server`)"
 
       - "traefik.http.routers.ping_mcp_server.entrypoints=websecure"
       - "traefik.http.routers.ping_mcp_server.tls=true"
@@ -28,7 +28,10 @@ services:
       - "traefik.http.services.ping_mcp_server.loadbalancer.server.port=1234"
       # - "traefik.http.services.ping_mcp_server.loadbalancer.server.scheme=http"
 
-      # - "traefik.http.services.ping_mcp_server.loadbalancer.server.url=http://chatwoot-rails:3000"
+      # - "traefik.http.services.ping_mcp_server.loadbalancer.server.url=http://ping_mcp_server:3000"
+
+      # - "traefik.http.middlewares.strip-ping_mcp_server.stripprefix.prefixes=/ping_mcp_server"
+      # - "traefik.http.routers.ping_mcp_server.middlewares=strip-ping_mcp_server"
 
     networks:
       - web
